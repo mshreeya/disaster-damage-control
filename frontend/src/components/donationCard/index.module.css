@@ -1,0 +1,98 @@
+.doantionCard {
+    padding: 1rem;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, .07); */
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    width: 20rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dCardBar {
+    content: "";
+    display: block;
+    height: 0.5rem;
+    width: 20rem;
+    transform: translateY(-1rem);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.pinCode {
+    opacity: 0.5;
+    margin-bottom: 0.3rem;
+}
+
+.location {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.cardBox {
+    background: rgba(243, 243, 243, 0.75);
+    padding: 1rem;
+    padding-top: 1.2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: calc(100% - 2rem);
+}
+
+.cardBox>div:nth-of-type(1) {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+
+.cardBox>div:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.dCardBtn {
+    color: white;
+    text-decoration: inherit;
+    background: #4C86F9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.dCardBtn:hover {
+    transform: scale(0.95);
+    background: #3771e5;
+}
+
+.cardReceived {
+    text-align: center;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+.cardReceived>div:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.cardReceived img {
+    width: 1.2rem;
+    transform: translateY(0.18rem);
+    cursor: pointer;
+}
+
+@media (max-width:400px) {
+
+    .doantionCard,
+    .dCardBar {
+        width: calc(100vw - 4rem);
+    }
+}

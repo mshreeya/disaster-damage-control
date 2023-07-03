@@ -1,0 +1,61 @@
+.sectionw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .07);
+    padding: 1rem;
+}
+
+.pinCode {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.pinCode>div:nth-of-type(1) {
+    font-size: 0.9rem;
+}
+
+.pinCode>div:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+table {
+    width: 800px;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 16px 24px;
+    text-align: left;
+}
+
+thead tr {
+    background-color: #4C86F9;
+    color: #fff;
+}
+
+thead th {
+    width: 25%;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+@media (max-width: 865px) {
+    .card {
+        width: calc(100vw - 5rem);
+        overflow-x: auto;
+    }
+}

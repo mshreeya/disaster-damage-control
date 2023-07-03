@@ -1,0 +1,260 @@
+.navBar {
+    /* background: #182029; */
+    height: 5rem;
+    width: 100%;
+    display: block;
+    /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); */
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+.navBar::before {
+    content: "";
+    height: 5rem;
+    width: 100%;
+    display: block;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    background: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.innerNav {
+    max-width: 80rem;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 3rem;
+}
+
+.navLink {
+    font-weight: bold;
+    padding: min(1rem, 1vw);
+    text-decoration: inherit;
+    color: inherit;
+    transition: .5s;
+    position: relative;
+}
+
+.navLink:hover,
+.navLink.activePath {
+    color: #4C86F9;
+}
+
+.navLink:hover::before,
+.navLink.activePath::before {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-40deg);
+}
+
+.navLink:hover::after,
+.navLink.activePath::after {
+    opacity: 1;
+    transform: translateY(-50%) rotate(40deg);
+}
+
+.midLinks {
+    display: flex;
+    gap: 2vw;
+}
+
+.btnPath {
+    stroke-dasharray: 436;
+    stroke-dashoffset: 0;
+    transition: 3s;
+}
+
+.svgicon {
+    fill: white;
+    stroke: #4C86F9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    fill-rule: evenodd;
+    z-index: -1;
+}
+
+.svgicon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btnWrap {
+    color: white;
+    font-weight: bold;
+    width: 140px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+    padding: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.btnWrap:hover .btnPath {
+    stroke-dashoffset: 872;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+
+.loginBtn,
+.mobLogin {
+    color: white;
+    text-decoration: inherit;
+    background: #4C86F9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.loginBtn:hover,
+.mobLogin:hover {
+    transform: scale(0.95);
+    background: #3771e5;
+}
+
+.mobLogin {
+    font-size: 2rem;
+}
+
+@media (max-width: 815px) {
+    .midLinks {
+        display: none;
+    }
+
+    .loginBtn {
+        display: none;
+    }
+
+    .btnWrap {
+        display: none;
+    }
+
+    .mobileMenu {
+        display: unset;
+    }
+
+    .mobileMenu span {
+        display: block;
+        height: 0.35rem;
+        width: 2.5rem;
+        border-radius: 0.1rem;
+        margin: 0.5rem 0;
+        background: black;
+        transition: .7s;
+    }
+
+    .mobileMenu:hover span {
+        background: #4C86F9;
+    }
+
+    .mobileMenu.menuOpen span {
+        background: #4C86F9;
+    }
+
+    .mobileMenu.menuOpen span:nth-of-type(1) {
+        transform: rotate(45deg) translate(0.6rem, 0.6rem);
+    }
+
+    .mobileMenu.menuOpen span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .mobileMenu.menuOpen span:nth-of-type(3) {
+        transform: rotate(-45deg) translate(0.6rem, -0.6rem);
+    }
+}
+
+.menuBack {
+    min-height: -webkit-fill-available;
+    padding-top: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 2rem;
+    gap: 0.6rem;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 600ms, visibility 600ms;
+}
+
+.menuBack .navLink::before,
+.menuBack .navLink::after {
+    width: 70px;
+    height: 8px;
+}
+
+.menuBack.menuOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes overlayItem {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menuBack .navLink {
+    transform: translateX(-5rem);
+    opacity: 0;
+}
+
+.menuBack.menuOpen .navLink {
+    transition: .4s;
+    animation: overlayItem 1s forwards ease;
+}
+
+.menuBack.menuOpen .navLink:nth-of-type(2) {
+    animation-delay: .15s;
+}
+
+.menuBack.menuOpen .navLink:nth-of-type(3) {
+    animation-delay: .30s;
+}
+
+.menuBack.menuOpen .navLink:nth-of-type(4) {
+    animation-delay: .45s;
+}
+
+.menuBack.menuOpen .navLink:nth-of-type(5) {
+    animation-delay: .60s;
+}
+
+.bottomSpace {
+    margin-bottom: 7rem;
+}

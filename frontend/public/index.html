@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#4C86F9" />
+    <meta property="og:type" content="website" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Disaster Damage Control</title>
+    <meta itemprop="name" content="Disaster Damage Control" />
+    <meta property="og:title" content="Disaster Damage Control" />
+    <meta name="twitter:title" content="Disaster Damage Control" />
+
+    <link rel="icon" href="https://i.imgur.com/iu8yaD3.png" />
+    <link rel="apple-touch-icon" href="https://i.imgur.com/iu8yaD3.png" />
+    <link rel="shortcut icon" href="https://i.imgur.com/iu8yaD3.png" type="image/x-icon" />
+
+    <meta itemprop="image" content="https://i.imgur.com/Nai1T9I.jpg" />
+    <meta name="twitter:image" content="https://i.imgur.com/Nai1T9I.jpg" />
+    <meta name="twitter:image:src" content="https://i.imgur.com/Nai1T9I.jpg" />
+    <meta property="og:image" content="https://i.imgur.com/Nai1T9I.jpg" />
+
+    <meta itemprop="description"
+        content="Enabling rapid response to natural disasters in terms of physical and financial aid. A 2023 google girl hackathon submission." />
+    <meta property="og:description"
+        content="Enabling rapid response to natural disasters in terms of physical and financial aid. A 2023 google girl hackathon submission." />
+    <meta name="twitter:description"
+        content="Enabling rapid response to natural disasters in terms of physical and financial aid. A 2023 google girl hackathon submission." />
+    <meta name="description"
+        content="Enabling rapid response to natural disasters in terms of physical and financial aid. A 2023 google girl hackathon submission." />
+
+    <style>
+        #loader_block {
+            background: white;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            z-index: 100000;
+            transition: opacity 300ms ease-in-out;
+        }
+
+        .loader-5 {
+            scale: 2;
+            height: 32px;
+            width: 32px;
+            animation: loader-5-1 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+        }
+
+        @keyframes loader-5-1 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader-5::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: auto;
+            margin: auto;
+            width: 8px;
+            height: 8px;
+            background: #4C86F9;
+            border-radius: 50%;
+            animation: loader-5-2 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+        }
+
+        @keyframes loader-5-2 {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate3d(24px, 0, 0) scale(.5);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+
+        .loader-5::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: auto;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 8px;
+            height: 8px;
+            background: #4C86F9;
+            border-radius: 50%;
+            animation: loader-5-3 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+        }
+
+        @keyframes loader-5-3 {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate3d(-24px, 0, 0) scale(.5);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+
+        .loader-5 span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            height: 32px;
+            width: 32px;
+        }
+
+        .loader-5 span::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            right: 0;
+            margin: auto;
+            width: 8px;
+            height: 8px;
+            background: #4C86F9;
+            border-radius: 50%;
+            animation: loader-5-4 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+        }
+
+        @keyframes loader-5-4 {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate3d(0, 24px, 0) scale(.5);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+
+        .loader-5 span::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: auto;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 8px;
+            height: 8px;
+            background: #4C86F9;
+            border-radius: 50%;
+            animation: loader-5-5 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+        }
+
+        @keyframes loader-5-5 {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate3d(0, -24px, 0) scale(.5);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="loader_block">
+        <div class="loader-5 center"><span></span></div>
+    </div>
+    <div id="root"></div>
+</body>
+
+</html>

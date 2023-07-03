@@ -1,0 +1,119 @@
+.sectionw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.selectBox {
+    width: 25rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width:440px) {
+    .selectBox {
+        width: calc(100vw - 4rem);
+    }
+}
+
+.dCardBtn {
+    color: white;
+    text-decoration: inherit;
+    background: #4C86F9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.dCardBtn:hover {
+    transform: scale(0.95);
+    background: #3771e5;
+}
+
+@keyframes scaleOut {
+    100% {
+        max-height: 70rem;
+    }
+}
+
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .07);
+    padding: 2rem;
+    width: 30rem;
+    margin-top: 2.5rem;
+    max-height: 0rem;
+    animation: scaleOut 1s forwards;
+}
+
+@media (max-width: 865px) {
+    .card {
+        width: calc(100vw - 6rem);
+        overflow-x: auto;
+        padding: 1.5rem;
+    }
+}
+
+.inputWrap {
+    margin-bottom: 1.5rem;
+}
+
+.inputWrap>div:first-of-type {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.inputWrap input {
+    width: 100%;
+    border-radius: 0.4rem;
+    border: 2px solid rgb(209, 209, 209);
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+}
+
+.location {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.location span {
+    white-space: nowrap;
+    min-width: 5.3rem;
+    display: block;
+}
+
+.pincodes input {
+    margin-bottom: 0.5rem;
+}
+
+.pincodes h2 {
+    font-size: 1rem;
+}
+
+.inputWrap .selectBox {
+    width: 100%;
+}
+
+.pincodes .dCardBtn {
+    width: fit-content;
+}
+
+.deleteBtn {
+    color: rgb(255, 0, 60);
+    margin-left: 0.4rem;
+    cursor: pointer;
+}
+
+.card>.dCardBtn {
+    text-align: center;
+}
+
+.pincodes p>div {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+}

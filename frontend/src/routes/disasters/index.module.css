@@ -1,0 +1,14 @@
+.sectionw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.donationWrap {
+    display: flex;
+    gap: 2rem;
+    max-width: 80rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
