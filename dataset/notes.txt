@@ -1,0 +1,9 @@
+Google maps api
+AIzaSyAcAIpEFWAMwPUMSv8xgQvj2l8ObqKIcFY
+
++0.0017 pan image to left
++0.0017 pan image to down
+
+https://maps.googleapis.com/maps/api/staticmap?center=19.8126871,85.8291777&zoom=19&maptype=satellite&size=640x640&key=AIzaSyAcAIpEFWAMwPUMSv8xgQvj2l8ObqKIcFY
+
+https://maps.googleapis.com/maps/api/geocode/json?address=752002,India&key=AIzaSyAcAIpEFWAMwPUMSv8xgQvj2l8ObqKIcFY
