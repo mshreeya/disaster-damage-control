@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/donations.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.8.7;\r\n\r\nerror DonationDeadLineReached();\r\nerror MaxFundsReached();\r\n\r\n\r\ncontract donations {\r\n    \r\n    \r\n    \r\n\r\n    struct BenificiaryCampaign{\r\n    address localHead;\r\n    string regionName;\r\n    string decription;\r\n    uint targetFunds;\r\n    uint presentFundsBalance;\r\n    uint deadline;\r\n    string imageUrl;\r\n    \r\n\r\n}\r\n\r\nuint private TotalBenificiary=0;\r\nmapping(uint256 => BenificiaryCampaign) idToCampaign;\r\nmapping(uint256 => address[] ) donatorsToCampaign;\r\n\r\n\r\n\r\nevent AmountDonatedsuccesfull(address indexed donor, uint indexed amount);\r\n\r\n\r\n\r\n\r\nfunction donateToBenificiary(uint256 _id) public payable {\r\n    \r\n    if(block.timestamp > idToCampaign[_id].deadline ){\r\n        revert DonationDeadLineReached();\r\n    }\r\n\r\n    if(idToCampaign[_id].presentFundsBalance > idToCampaign[_id].targetFunds){\r\n        revert MaxFundsReached();\r\n    }\r\n    uint amount= msg.value;\r\n    \r\n    idToCampaign[_id].presentFundsBalance+=amount;\r\n    donatorsToCampaign[_id].push(msg.sender);\r\n    (bool sent,)= payable(idToCampaign[_id].localHead).call{value:amount}(\"\");\r\n\r\n    if (sent){\r\n        emit AmountDonatedsuccesfull(msg.sender,amount);\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\nfunction createCampaign(address _localHead,\r\n    string memory _regionName,\r\n    string memory _decription,\r\n    uint _targetFunds,\r\n    \r\n    uint _deadline,\r\n    string memory _imageUrl) public{\r\n    BenificiaryCampaign memory tempCampaign = BenificiaryCampaign(_localHead, _regionName,_decription,_targetFunds,0, _deadline,_imageUrl);\r\n    idToCampaign[TotalBenificiary]=tempCampaign;\r\n    TotalBenificiary++;\r\n}\r\n   \r\n\r\n\r\n\r\nfunction getDonators(uint _id) public view returns(address[] memory){\r\n    return donatorsToCampaign[_id];\r\n}\r\n\r\n\r\n\r\n\r\n\r\nfunction getAllCampaign() public view returns (BenificiaryCampaign[] memory ){\r\n BenificiaryCampaign[] memory temp = new BenificiaryCampaign[](TotalBenificiary);\r\n for (uint256 index = 0; index < TotalBenificiary; index++) {\r\n    BenificiaryCampaign storage item = idToCampaign[index];\r\n    temp[index]=item;\r\n    \r\n }\r\n\r\n return temp;\r\n\r\n}\r\n \r\n    \r\n\r\n\r\n\r\n    \r\n\r\n    \r\n\r\n\r\n\r\n}"
+    },
+    "contracts/Lock.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.7;\n\n// Uncomment this line to use console.log\n// import \"hardhat/console.sol\";\n\ncontract Lock {\n    uint public unlockTime;\n    address payable public owner;\n\n    event Withdrawal(uint amount, uint when);\n\n    constructor(uint _unlockTime) payable {\n        require(\n            block.timestamp < _unlockTime,\n            \"Unlock time should be in the future\"\n        );\n\n        unlockTime = _unlockTime;\n        owner = payable(msg.sender);\n    }\n\n    function withdraw() public {\n        // Uncomment this line, and the import of \"hardhat/console.sol\", to print a log in your terminal\n        // console.log(\"Unlock time is %o and block timestamp is %o\", unlockTime, block.timestamp);\n\n        require(block.timestamp >= unlockTime, \"You can't withdraw yet\");\n        require(msg.sender == owner, \"You aren't the owner\");\n\n        emit Withdrawal(address(this).balance, block.timestamp);\n\n        owner.transfer(address(this).balance);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
